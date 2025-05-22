@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Festivly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0e0020;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #0e0020;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      max-height: 80px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+    nav a {
+      color: #bb4040;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ff00cc;
+    }
+    nav a.active {
+      color: #ff00cc;
+      font-weight: bold;
+    }
+    nav a:last-child {
+      background: #ff008c;
+      padding: 8px 16px;
+      border-radius: 5px;
+      color: white;
+    }
+    
+    /* About Hero Section */
+    .about-hero {
+      padding: 120px 40px 80px;
+      text-align: center;
+      background: 
+        linear-gradient(rgba(14, 0, 32, 0.85), rgba(26, 0, 82, 0.8)),
+        url('assets/images/about-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .about-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .about-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .about-hero p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* About Us Section */
+    .about-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0e0020, #150035);
+    }
+    
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .about-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .about-heading h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .about-heading h2 span {
+      color: #ff00cc;
+    }
+    
+    .about-heading p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      margin-bottom: 80px;
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      position: relative;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .about-image::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid #ff008c;
+      border-radius: 20px;
+      top: 15px;
+      left: 15px;
+      z-index: -1;
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ff00cc;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .about-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px;
+    }
+    
+    .stat-item {
+      text-align: center;
+      flex: 1;
+      min-width: 120px;
+      background: rgba(31, 1, 68, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ff00cc;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Team Section */
+    .team-section {
+      padding: 80px 40px;
+      background: linear-gradient(to top, #0e0020, #150035);
+    }
+    
+    .team-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .team-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .team-heading h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .team-heading h2 span {
+      color: #ff00cc;
+    }
+    
+    .team-heading p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .team-member {
+      background: rgba(31, 1, 68, 0.5);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 0, 140, 0.3);
+    }
+    
+    .member-img-container {
+      height: 300px;
+      overflow: hidden;
+    }
+    
+    .member-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .team-member:hover .member-img {
+      transform: scale(1.05);
+    }
+    
+    .member-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .member-name {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    
+    .member-role {
+      color: #ff00cc;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .member-bio {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .member-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .member-social a:hover {
+      background: #ff00cc;
+      transform: translateY(-3px);
+    }
+    
+    /* Values Section */
+    .values-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0e0020, #150035);
+    }
+    
+    .values-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .values-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .values-heading h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .values-heading h2 span {
+      color: #ff00cc;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .value-card {
+      background: rgba(31, 1, 68, 0.5);
+      padding: 40px 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #ff00cc, #3333ff);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      font-size: 2rem;
+      color: #fff;
+    }
+    
+    .value-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .value-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    /* Timeline Section */
+    .timeline-section {
+      padding: 80px 40px;
+      background: linear-gradient(to top, #0e0020, #150035);
+    }
+    
+    .timeline-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .timeline-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .timeline-heading h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .timeline-heading h2 span {
+      color: #ff00cc;
+    }
+    
+    .timeline {
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      background: #ff00cc;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 30px;
+      position: relative;
+      margin-bottom: 80px;
+      width: 50%;
+    }
+    
+    .timeline-item:nth-child(even) {
+      align-self: flex-end;
+      justify-content: flex-start;
+      padding-left: 30px;
+      padding-right: 0;
+      margin-left: 50%;
+    }
+    
+    .timeline-item-content {
+      background: rgba(31, 1, 68, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    
+    .timeline-item-content::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid rgba(31, 1, 68, 0.7);
+      right: -10px;
+      top: 20px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-item-content::before {
+      left: -10px;
+      border-left: none;
+      border-right: 10px solid rgba(31, 1, 68, 0.7);
+    }
+    
+    .timeline-date {
+      font-size: 0.9rem;
+      color: #ff00cc;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .timeline-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    
+    .timeline-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      background: #ff00cc;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 20px;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(255, 0, 140, 0.3);
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 992px) {
+      .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 15px;
+        flex-direction: column;
+      }
+      
+      .logo {
+        margin-bottom: 15px;
+      }
+      
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .about-hero {
+        padding: 100px 20px 60px;
+      }
+      
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        margin: 0 auto 40px;
+      }
+      
+      .timeline::before {
+        left: 20px;
+      }
+      
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 45px;
+        margin-left: 0;
+      }
+      
+      .timeline-dot {
+        left: 20px;
+      }
+      
+      .timeline-item-content::before,
+      .timeline-item:nth-child(even) .timeline-item-content::before {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stat-item {
+        min-width: 100%;
+      }
+      
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #ff008c;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: #ff40a5;
+      transform: translateY(-5px);
+    }
+    
+    /* Footer Styles */
+    .footer-section {
+      background: linear-gradient(to bottom, #0b001a, #000000);
+      color: #fff;
+      padding: 70px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff00cc, #3333ff);
+    }
+    
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 30px;
+      padding: 0 15px;
+    }
+    
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo img {
+      max-height: 60px;
+    }
+    
+    .footer-desc {
+      color: #bbb;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: #ff008c;
+      transform: translateY(-5px);
+    }
+    
+    .footer-column h4 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #ff008c;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #ff008c;
+      transform: translateX(5px);
+    }
+    
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    
+    .contact-item i {
+      color: #ff008c;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+    
+    .contact-item span {
+      color: #bbb;
+      line-height: 1.5;
+    }
+    
+    .newsletter h5 {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .newsletter-form {
+      display: flex;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 4px 0 0 4px;
+      color: #fff;
+      outline: none;
+    }
+    
+    .newsletter-form button {
+      background: #ff008c;
+      color: white;
+      border: none;
+      padding: 0 15px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+      background: #ff40a5;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-bottom p {
+      color: #777;
+      margin: 10px 0;
+    }
+    
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .footer-bottom-links a {
+      color: #777;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom-links a:hover {
+      color: #ff008c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo.jpg" alt="Festivly Logo">
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="event.html">Event</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <h1>Tentang Festivly</h1>
+      <p>Platform event organizer terpercaya untuk mewujudkan acara impian Anda dengan kualitas terbaik dan harga terjangkau.</p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-heading">
+        <h2>Siapa <span>Kami</span></h2>
+        <p>Mengenal lebih dekat dengan tim Festivly yang berkomitmen untuk mewujudkan acara impian Anda</p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-image">
+          <img src="assets/images/hero-bg.jpg" alt="About Festivly">
+        </div>
+        <div class="about-text">
+          <h3>Cerita Kami</h3>
+          <p>Festivly didirikan pada tahun 2025 dengan visi menjadi platform terdepan yang menghubungkan klien dengan vendor event terbaik di Malang. Kami memahami bahwa setiap acara memiliki makna dan tujuan yang unik, dan inilah mengapa kami berkomitmen untuk memberikan layanan yang personal dan profesional untuk setiap klien kami.</p>
+          <p>Tim kami terdiri dari para profesional berpengalaman dan berdedikasi untuk menciptakan pengalaman acara yang tak terlupakan. Dari pernikahan hingga acara korporasi, ulang tahun hingga festival musik, kami memiliki pengetahuan dan jaringan vendor yang luas untuk memenuhi semua kebutuhan acara Anda.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-value">500+</div>
+              <div class="stat-label">Acara</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">300+</div>
+              <div class="stat-label">Vendor</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">1000+</div>
+              <div class="stat-label">Klien</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="values-container">
+      <div class="values-heading">
+        <h2>Nilai <span>Inti</span> Kami</h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="value-title">Integritas</h3>
+          <p class="value-desc">Kami menjunjung tinggi kejujuran dan transparansi dalam setiap aspek layanan kami, membangun kepercayaan dengan klien dan vendor.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="value-title">Kreativitas</h3>
+          <p class="value-desc">Kami terus berinovasi dan mencari ide-ide segar untuk memberikan solusi unik dan menarik untuk setiap acara.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="value-title">Kolaborasi</h3>
+          <p class="value-desc">Kami percaya dalam kekuatan kerja sama tim dan membangun hubungan yang kuat dengan klien dan vendor.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="value-title">Kualitas</h3>
+          <p class="value-desc">Kami berkomitmen untuk memberikan layanan berkualitas tinggi dan pengalaman terbaik untuk setiap acara.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="team-container">
+      <div class="team-heading">
+        <h2>Tim <span>Kami</span></h2>
+        <p>Kenali profesional berbakat di balik kesuksesan Festivly</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-img-container">
+            <img src="assets/images/3bf05e5bb63a476c87ed47b2629319cc.jpg" alt="Team Member" class="member-img">
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Farrel Juan Abimanyu</h3>
+            <div class="member-role">CEO</div>
+            <p class="member-bio">Farrel memiliki pengalaman dalam industri event organizer dan telah mengelola ratusan acara besar.</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-img-container">
+            <img src="assets/images/d2f7b2cba5a4417199247bd30e476531.jpg" alt="Team Member" class="member-img">
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Dewa Ruci</h3>
+            <div class="member-role">Business Development & Partnership Lead </div>
+            <p class="member-bio">Dewa adalah seorang kemitraan strategis, memperluas relasi dengan vendor dan klien, serta merancang strategi ekspansi pasar. Fokus pada pertumbuhan dan monetisasi platform. .</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-img-container">
+            <img src="assets/images/1d17238d67884f27b44c22d65177ba8f.jpg" alt="Team Member" class="member-img">
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Fauzil Adhim </h3>
+            <div class="member-role">UI/UX Designer</div>
+            <p class="member-bio">Adhim adalah seorang visioner kreatif dengan keahlian dalam mendesain pengalaman acara yang unik dan berkesan untuk berbagai jenis event.</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-img-container">
+            <img src="assets/images/fcf0fcc70b814ad9a6613bacd09e4450.jpg" alt="Team Member" class="member-img">
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Aditia Pranata</h3>
+            <div class="member-role">Brand Strategist & Visual Designer</div>
+            <p class="member-bio">Adit Memiliki pengalaman dalam membangun identitas visual berbagai brand digital, mulai dari startup hingga event besar. Telah menangani desain kampanye digital, konten kreatif, dan strategi komunikasi visual yang mampu meningkatkan daya tarik dan konsistensi brand di berbagai platform.</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <div class="member-img-container">
+            <img src="assets/images/fcf0fcc70b814ad9a6613bacd09e4450.jpg" alt="Team Member" class="member-img">
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">Irfan Deny</h3>
+            <div class="member-role">Backend Developer & System Analyst</div>
+            <p class="member-bio">Adit Berpengalaman dalam membangun sistem backend yang efisien dan menganalisis kebutuhan teknis berbagai proyek digital.</p>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="timeline-container">
+      <div class="timeline-heading">
+        <h2>Perjalanan <span>Kami</span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-date">2020</div>
+            <h3 class="timeline-title">Awal Mula</h3>
+            <p class="timeline-desc">Festivly didirikan dengan visi menghubungkan klien dengan vendor event terbaik di Indonesia.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-date">2021</div>
+            <h3 class="timeline-title">Pertumbuhan</h3>
+            <p class="timeline-desc">Kami memperluas jaringan vendor dan bekerja sama dengan lebih dari 100 vendor event di berbagai kategori.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-date">2022</div>
+            <h3 class="timeline-title">Ekspansi</h3>
+            <p class="timeline-desc">Festivly memperluas layanan ke beberapa kota besar di Indonesia dan meningkatkan jumlah acara yang dikelola.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-date">2023</div>
+            <h3 class="timeline-title">Inovasi</h3>
+            <p class="timeline-desc">Peluncuran platform online yang memudahkan klien untuk mencari dan memesan vendor event sesuai kebutuhan mereka.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-item-content">
+            <div class="timeline-date">2024</div>
+            <h3 class="timeline-title">Pengakuan</h3>
+            <p class="timeline-desc">Festivly diakui sebagai salah satu platform event organizer terbaik di Indonesia dengan lebih dari 500 acara sukses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <footer class="footer-section">
+    <div class="footer-top">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="assets/images/logo.jpg" alt="Festivly Logo">
+        </div>
+        <p class="footer-desc">Platform event organizer terpercaya untuk mewujudkan acara impian Anda. Temukan berbagai vendor dan layanan terbaik.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#">Pernikahan</a></li>
+          <li><a href="#">Acara Korporasi</a></li>
+          <li><a href="#">Ulang Tahun</a></li>
+          <li><a href="#">Konser Musik</a></li>
+          <li><a href="#">Seminar dan Workshop</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Us</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Jl. Event Organizer No. 123, Jakarta</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+62 123 4567 890</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@festivly.id</span>
+          </div>
+        </div>
+        <div class="newsletter">
+          <h5>Subscribe to our newsletter</h5>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button>Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Festivly. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Back to top button functionality
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

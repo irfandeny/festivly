@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Festivly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0e0020;
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #0e0020;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      max-height: 80px;
+      transition: transform 0.3s ease;
+    }
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+    nav a {
+      color: #bb4040;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ff00cc;
+    }
+    nav a.active {
+      color: #ff00cc;
+      font-weight: bold;
+    }
+    nav a:last-child {
+      background: #ff008c;
+      padding: 8px 16px;
+      border-radius: 5px;
+      color: white;
+    }
+    
+    /* Contact Hero Section */
+    .contact-hero {
+      padding: 120px 40px 80px;
+      text-align: center;
+      background: 
+        linear-gradient(rgba(14, 0, 32, 0.85), rgba(26, 0, 82, 0.8)),
+        url('assets/images/bf386ec42c2c45bf901d498947de011a.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .contact-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .contact-hero p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Contact Info Section */
+    .contact-info-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0e0020, #150035);
+    }
+    
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    
+    .contact-form-container {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-details {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-heading {
+      margin-bottom: 30px;
+    }
+    
+    .contact-heading h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .contact-heading h2 span {
+      color: #ff00cc;
+    }
+    
+    .contact-heading p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      background: rgba(31, 1, 68, 0.5);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #ff008c;
+      box-shadow: 0 0 0 2px rgba(255, 0, 140, 0.3);
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+    }
+    
+    .submit-btn {
+      background: #ff008c;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      width: 100%;
+    }
+    
+    .submit-btn:hover {
+      background: #ff40a5;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 0, 140, 0.3);
+    }
+    
+    /* Contact Details */
+    .contact-card {
+      background: rgba(31, 1, 68, 0.5);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+    }
+    
+    .contact-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .contact-methods {
+      margin-bottom: 30px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 0, 140, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff00cc;
+      font-size: 1.2rem;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .contact-text {
+      flex: 1;
+    }
+    
+    .contact-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+    
+    .contact-text p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: #ff008c;
+      transform: translateY(-5px);
+    }
+    
+    /* Office Hours */
+    .office-hours {
+      background: rgba(31, 1, 68, 0.5);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .office-hours h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .hours-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .day {
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .hours {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Map Section */
+    .map-section {
+      padding: 80px 40px;
+      background: linear-gradient(to top, #0e0020, #150035);
+    }
+    
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .map-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .map-heading h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .map-heading h2 span {
+      color: #ff00cc;
+    }
+    
+    .map-frame {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0e0020, #150035);
+    }
+    
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .faq-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .faq-heading h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .faq-heading h2 span {
+      color: #ff00cc;
+    }
+    
+    .faq-heading p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .accordion {
+      margin-bottom: 20px;
+    }
+    
+    .accordion-item {
+      background: rgba(31, 1, 68, 0.5);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    
+    .accordion-header {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .accordion-header:hover {
+      background: rgba(255, 0, 140, 0.1);
+    }
+    
+    .accordion-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    
+    .accordion-icon {
+      color: #ff00cc;
+      transition: transform 0.3s ease;
+    }
+    
+    .accordion-icon.active {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .accordion-content.active {
+      padding: 0 20px 20px;
+      max-height: 500px;
+    }
+    
+    .accordion-content p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 40px;
+      text-align: center;
+      background: 
+        linear-gradient(rgba(14, 0, 32, 0.8), rgba(26, 0, 82, 0.85)),
+        url('assets/images/5f62bec7563d4ff0ba99971735181e67.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    
+    .cta-content p {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .cta-btn {
+      background: #ff008c;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    
+    .cta-btn:hover {
+      background: #ff40a5;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(255, 0, 140, 0.4);
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 992px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      
+      .contact-form-container,
+      .contact-details {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 15px;
+        flex-direction: column;
+      }
+      
+      .logo {
+        margin-bottom: 15px;
+      }
+      
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .contact-hero {
+        padding: 100px 20px 60px;
+      }
+      
+      .contact-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .map-frame {
+        height: 350px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-form,
+      .contact-card,
+      .office-hours {
+        padding: 25px;
+      }
+      
+      .accordion-title {
+        font-size: 1rem;
+      }
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: #ff008c;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: #ff40a5;
+      transform: translateY(-5px);
+    }
+    
+    /* Footer Styles */
+    .footer-section {
+      background: linear-gradient(to bottom, #0b001a, #000000);
+      color: #fff;
+      padding: 70px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff00cc, #3333ff);
+    }
+    
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 30px;
+      padding: 0 15px;
+    }
+    
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo img {
+      max-height: 60px;
+    }
+    
+    .footer-desc {
+      color: #bbb;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: #ff008c;
+      transform: translateY(-5px);
+    }
+    
+    .footer-column h4 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #ff008c;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #ff008c;
+      transform: translateX(5px);
+    }
+    
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    
+    .contact-item i {
+      color: #ff008c;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+    
+    .contact-item span {
+      color: #bbb;
+      line-height: 1.5;
+    }
+    
+    .newsletter h5 {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .newsletter-form {
+      display: flex;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 4px 0 0 4px;
+      color: #fff;
+      outline: none;
+    }
+    
+    .newsletter-form button {
+      background: #ff008c;
+      color: white;
+      border: none;
+      padding: 0 15px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+      background: #ff40a5;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-bottom p {
+      color: #777;
+      margin: 10px 0;
+    }
+    
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .footer-bottom-links a {
+      color: #777;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom-links a:hover {
+      color: #ff008c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo.jpg" alt="Festivly Logo">
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="event.html">Event</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="contact-hero" id="contact-hero">
+    <div class="contact-hero-content">
+      <h1>Hubungi Kami</h1>
+      <p>Kami siap membantu Anda mewujudkan acara impian. Jangan ragu untuk menghubungi kami kapan saja.</p>
+    </div>
+  </section>
+
+  <section class="contact-info-section">
+    <div class="contact-container">
+      <div class="contact-form-container">
+        <div class="contact-heading">
+          <h2>Kirim <span>Pesan</span></h2>
+          <p>Isi formulir di bawah ini dan tim kami akan segera menghubungi Anda.</p>
+        </div>
+        
+        <form class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email Anda" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Nomor Telepon</label>
+              <input type="tel" id="phone" name="phone" placeholder="Nomor telepon Anda">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subjek</label>
+              <input type="text" id="subject" name="subject" placeholder="Subjek pesan Anda" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="event-type">Jenis Event</label>
+            <select id="event-type" name="event-type" required>
+              <option value="" selected disabled>Pilih jenis event</option>
+              <option value="wedding">Pernikahan</option>
+              <option value="corporate">Acara Korporasi</option>
+              <option value="birthday">Ulang Tahun</option>
+              <option value="concert">Konser Musik</option>
+              <option value="seminar">Seminar & Workshop</option>
+              <option value="other">Lainnya</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea id="message" name="message" placeholder="Ceritakan lebih detail tentang event yang Anda inginkan..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Kirim Pesan</button>
+        </form>
+      </div>
+      
+      <div class="contact-details">
+        <div class="contact-card">
+          <h3>Informasi Kontak</h3>
+          
+          <div class="contact-methods">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Alamat</h4>
+                <p>Jl. Event Organizer No. 123<br>Jakarta Selatan, 12345<br>Indonesia</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Telepon</h4>
+                <p>+62 123 4567 890<br>+62 098 7654 321</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p>info@festivly.id<br>support@festivly.id</p>
+              </div>
+            </div>
+          </div>
+          
+          <h4>Media Sosial</h4>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="office-hours">
+          <h3>Jam Operasional</h3>
+          <ul class="hours-list">
+            <li><span class="day">Senin</span> <span class="hours">09:00 - 17:00</span></li>
+            <li><span class="day">Selasa</span> <span class="hours">09:00 - 17:00</span></li>
+            <li><span class="day">Rabu</span> <span class="hours">09:00 - 17:00</span></li>
+            <li><span class="day">Kamis</span> <span class="hours">09:00 - 17:00</span></li>
+            <li><span class="day">Jumat</span> <span class="hours">09:00 - 17:00</span></li>
+            <li><span class="day">Sabtu</span> <span class="hours">09:00 - 15:00</span></li>
+            <li><span class="day">Minggu</span> <span class="hours">Tutup</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="map-container">
+      <div class="map-heading">
+        <h2>Lokasi <span>Kami</span></h2>
+      </div>
+      
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.65294833397!2d106.68941599123124!3d-6.229386704984693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1646212402601!5m2!1sid!2sid" class="map-frame" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="faq-heading">
+        <h2>Pertanyaan <span>Umum</span></h2>
+        <p>Berikut adalah beberapa pertanyaan yang sering ditanyakan oleh klien kami</p>
+      </div>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">Apa saja layanan yang ditawarkan oleh Festivly?</div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="accordion-content">
+            <p>Festivly menawarkan berbagai layanan event organizer seperti pernikahan, ulang tahun, acara korporasi, konser musik, seminar dan workshop, serta festival dan karnaval. Kami menyediakan layanan lengkap mulai dari perencanaan konsep, pencarian venue, dekorasi, katering, dokumentasi, hingga manajemen acara pada hari H.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">Berapa biaya untuk menggunakan jasa Festivly?</div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="accordion-content">
+            <p>Biaya untuk menggunakan jasa Festivly bervariasi tergantung pada jenis acara, skala, dan kebutuhan spesifik Anda. Kami menawarkan berbagai paket dengan harga yang kompetitif dan fleksibel sesuai dengan budget yang Anda miliki. Hubungi kami untuk konsultasi gratis dan penawaran harga yang disesuaikan dengan kebutuhan Anda.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">Berapa jauh sebelumnya saya harus memesan jasa Festivly?</div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="accordion-content">
+            <p>Untuk mendapatkan hasil terbaik, kami menyarankan agar Anda memesan jasa Festivly minimal 3-6 bulan sebelum tanggal acara, terutama untuk acara besar seperti pernikahan atau konferensi. Namun, kami juga dapat menangani permintaan dengan tenggat waktu yang lebih singkat tergantung pada ketersediaan dan kompleksitas acara.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">Apakah Festivly melayani acara di luar Jakarta?</div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="accordion-content">
+            <p>Ya, Festivly melayani acara di Jakarta dan sekitarnya, serta kota-kota besar lainnya di Indonesia seperti Bandung, Surabaya, Bali, dll. Untuk acara di luar Jakarta, mungkin akan ada biaya tambahan untuk akomodasi dan transportasi tim kami.</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">Bagaimana cara memesan jasa Festivly?</div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+          </div>
+          <div class="accordion-content">
+            <p>Cara termudah untuk memesan jasa Festivly adalah dengan mengisi formulir kontak di halaman ini atau menghubungi kami melalui telepon atau email. Setelah itu, kami akan menghubungi Anda untuk konsultasi awal dan membahas kebutuhan acara Anda secara lebih detail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-content">
+        <h2>Siap Mewujudkan Acara Impian Anda?</h2>
+        <p>Hubungi kami sekarang dan biarkan tim profesional kami membantu mewujudkan acara yang tak terlupakan.</p>
+        <a href="#contact-hero" class="cta-btn">Mulai Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <footer class="footer-section">
+    <div class="footer-top">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="assets/images/logo.jpg" alt="Festivly Logo">
+        </div>
+        <p class="footer-desc">Platform event organizer terpercaya untuk mewujudkan acara impian Anda. Temukan berbagai vendor dan layanan terbaik.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#">Pernikahan</a></li>
+          <li><a href="#">Acara Korporasi</a></li>
+          <li><a href="#">Ulang Tahun</a></li>
+          <li><a href="#">Konser Musik</a></li>
+          <li><a href="#">Seminar dan Workshop</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contact Us</h4>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Jl. Event Organizer No. 123, Jakarta</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+62 123 4567 890</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@festivly.id</span>
+          </div>
+        </div>
+        <div class="newsletter">
+          <h5>Subscribe to our newsletter</h5>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email">
+            <button>Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Festivly. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Accordion Functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        const accordionItem = this.parentElement;
+        const accordionContent = this.nextElementSibling;
+        const accordionIcon = this.querySelector('.accordion-icon');
+        
+        // Toggle active class
+        accordionContent.classList.toggle('active');
+        accordionIcon.classList.toggle('active');
+        
+        // Close other accordion items
+        document.querySelectorAll('.accordion-content').forEach(content => {
+          if (content !== accordionContent) {
+            content.classList.remove('active');
+          }
+        });
+        
+        document.querySelectorAll('.accordion-icon').forEach(icon => {
+          if (icon !== accordionIcon) {
+            icon.classList.remove('active');
+          }
+        });
+      });
+    });
+    
+    // Contact Form Submission
+    const contactForm = document.querySelector('.contact-form');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const subject = document.getElementById('subject').value;
+      const eventType = document.getElementById('event-type').value;
+      const message = document.getElementById('message').value;
+      
+      // Create form data object
+      const formData = {
+        name,
+        email,
+        phone,
+        subject,
+        eventType,
+        message
+      };
+      
+      // You would typically send this data to a server
+      // For demo purposes, show a success message
+      alert('Terima kasih! Pesan Anda telah terkirim. Tim kami akan segera menghubungi Anda.');
+      
+      // Reset form
+      this.reset();
+      
+      console.log('Form Data:', formData);
+    });
+    
+    // Back to top button functionality
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
