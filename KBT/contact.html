@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Hubungi Festivly untuk mewujudkan acara impian Anda. Kami siap membantu perencanaan event Anda.">
+  <meta name="keywords" content="event organizer, kontak, festivly, acara, event">
+  <meta name="theme-color" content="#0e0020">
   <title>Contact - Festivly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <style>
     * {
@@ -16,8 +18,7 @@
       background-color: #0e0020;
       color: #fff;
       scroll-behavior: smooth;
-    }
-    header {
+    }    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -26,7 +27,10 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
     }
+    
     .logo {
       font-size: 24px;
       font-weight: bold;
@@ -34,32 +38,77 @@
       display: flex;
       align-items: center;
     }
+    
+    .logo a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
     .logo img {
       max-height: 80px;
       transition: transform 0.3s ease;
+      max-width: 100%;
+      height: auto;
     }
+    
     .logo img:hover {
       transform: scale(1.05);
+    }nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
     }
+    
     nav a {
       color: #bb4040;
       margin: 0 15px;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      padding: 8px 0;
+      position: relative;
+      /* Better touch target size for mobile */
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    
     nav a:hover {
       color: #ff00cc;
     }
+    
     nav a.active {
       color: #ff00cc;
       font-weight: bold;
     }
+    
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #ff00cc;
+      transform: scaleX(0.7);
+      transition: transform 0.3s ease;
+    }
+    
     nav a:last-child {
       background: #ff008c;
       padding: 8px 16px;
       border-radius: 5px;
       color: white;
+      margin-left: 15px;
+    }
+    
+    nav a:last-child:hover {
+      background: #ff40a5;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(255, 0, 140, 0.3);
     }
     
     /* Contact Hero Section */
@@ -154,8 +203,7 @@
       color: rgba(255, 255, 255, 0.9);
       font-weight: 500;
     }
-    
-    .form-group input,
+      .form-group input,
     .form-group textarea,
     .form-group select {
       width: 100%;
@@ -166,6 +214,9 @@
       color: #fff;
       font-size: 0.95rem;
       transition: all 0.3s ease;
+      -webkit-appearance: none; /* Removes default styling in iOS */
+      appearance: none;
+      font-family: 'Montserrat', sans-serif; /* Ensure consistent font */
     }
     
     .form-group input:focus,
@@ -184,6 +235,14 @@
     .form-group textarea {
       min-height: 150px;
       resize: vertical;
+    }
+    
+    /* Style for select dropdown arrow */
+    .form-group select {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6"><path fill="%23ffffff" d="M0 0h12L6 6z"/></svg>');
+      background-position: right 15px center;
+      background-repeat: no-repeat;
+      padding-right: 40px;
     }
     
     .form-row {
@@ -356,13 +415,23 @@
     .map-heading h2 span {
       color: #ff00cc;
     }
-    
-    .map-frame {
-      width: 100%;
-      height: 500px;
-      border: none;
+      .map-responsive {
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .map-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 15px;
     }
     
     /* FAQ Section */
@@ -503,9 +572,18 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(255, 0, 140, 0.4);
     }
+      /* Responsive styles */
+    @media screen and (max-width: 1200px) {
+      .contact-container,
+      .map-container,
+      .faq-container,
+      .cta-container {
+        width: 95%;
+        padding: 0 20px;
+      }
+    }
     
-    /* Responsive styles */
-    @media (max-width: 992px) {
+    @media screen and (max-width: 992px) {
       .contact-container {
         flex-direction: column;
       }
@@ -514,9 +592,21 @@
       .contact-details {
         width: 100%;
       }
+      
+      .contact-info-section,
+      .map-section,
+      .faq-section {
+        padding: 60px 20px;
+      }
+      
+      .contact-heading h2,
+      .map-heading h2,
+      .faq-heading h2 {
+        font-size: 2rem;
+      }
     }
     
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       header {
         padding: 15px;
         flex-direction: column;
@@ -531,6 +621,12 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
+        width: 100%;
+      }
+      
+      nav a {
+        margin: 5px 10px;
+        font-size: 0.9rem;
       }
       
       .contact-hero {
@@ -549,11 +645,25 @@
       .map-frame {
         height: 350px;
       }
+      
+      .footer-top {
+        flex-direction: column;
+        padding: 0 20px 30px;
+      }
+      
+      .footer-column {
+        width: 100%;
+        min-width: 100%;
+      }
     }
     
-    @media (max-width: 576px) {
+    @media screen and (max-width: 576px) {
       .contact-hero h1 {
         font-size: 2rem;
+      }
+      
+      .contact-hero p {
+        font-size: 1rem;
       }
       
       .contact-form,
@@ -563,6 +673,54 @@
       }
       
       .accordion-title {
+        font-size: 1rem;
+      }
+      
+      .cta-content h2 {
+        font-size: 1.8rem;
+      }
+      
+      .cta-content p {
+        font-size: 1rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-bottom-links {
+        margin-top: 15px;
+        justify-content: center;
+      }
+    }
+    
+    /* Small mobile devices */
+    @media screen and (max-width: 480px) {
+      header {
+        padding: 10px;
+      }
+      
+      .logo img {
+        max-height: 60px;
+      }
+      
+      nav a {
+        margin: 3px 8px;
+        font-size: 0.85rem;
+      }
+      
+      .contact-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .submit-btn {
+        padding: 12px 20px;
+      }
+      
+      .contact-icon {
+        width: 40px;
+        height: 40px;
         font-size: 1rem;
       }
     }
@@ -735,19 +893,23 @@
       margin-bottom: 15px;
       color: #fff;
     }
-    
-    .newsletter-form {
+      .newsletter-form {
       display: flex;
+      flex-wrap: wrap;
     }
     
     .newsletter-form input {
       flex: 1;
-      padding: 10px 15px;
+      min-width: 120px;
+      padding: 12px 15px;
       background: rgba(255, 255, 255, 0.1);
       border: none;
       border-radius: 4px 0 0 4px;
       color: #fff;
       outline: none;
+      font-size: 14px;
+      -webkit-appearance: none; /* Removes default styling in iOS */
+      appearance: none;
     }
     
     .newsletter-form button {
@@ -758,10 +920,30 @@
       border-radius: 0 4px 4px 0;
       cursor: pointer;
       transition: background 0.3s ease;
+      min-height: 42px; /* Ensure good touch target */
+      font-weight: 500;
     }
     
     .newsletter-form button:hover {
       background: #ff40a5;
+    }
+    
+    @media screen and (max-width: 480px) {
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-form input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      
+      .newsletter-form button {
+        border-radius: 4px;
+        width: 100%;
+        padding: 10px;
+      }
     }
     
     .footer-bottom {
@@ -829,29 +1011,32 @@
         <form class="contact-form">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Nama Lengkap</label>
-              <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required>
+              <label for="name">Nama Lengkap</label>              <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required 
+                     aria-required="true" autocomplete="name">
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Email Anda" required>
+              <input type="email" id="email" name="email" placeholder="Email Anda" required 
+                     aria-required="true" autocomplete="email">
             </div>
           </div>
           
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Nomor Telepon</label>
-              <input type="tel" id="phone" name="phone" placeholder="Nomor telepon Anda">
+              <input type="tel" id="phone" name="phone" placeholder="Nomor telepon Anda" 
+                     autocomplete="tel" pattern="[0-9+\-\s()]*">
             </div>
             <div class="form-group">
               <label for="subject">Subjek</label>
-              <input type="text" id="subject" name="subject" placeholder="Subjek pesan Anda" required>
+              <input type="text" id="subject" name="subject" placeholder="Subjek pesan Anda" required 
+                     aria-required="true">
             </div>
           </div>
           
           <div class="form-group">
             <label for="event-type">Jenis Event</label>
-            <select id="event-type" name="event-type" required>
+            <select id="event-type" name="event-type" required aria-required="true">
               <option value="" selected disabled>Pilih jenis event</option>
               <option value="wedding">Pernikahan</option>
               <option value="corporate">Acara Korporasi</option>
@@ -864,7 +1049,9 @@
           
           <div class="form-group">
             <label for="message">Pesan</label>
-            <textarea id="message" name="message" placeholder="Ceritakan lebih detail tentang event yang Anda inginkan..." required></textarea>
+            <textarea id="message" name="message" 
+                      placeholder="Ceritakan lebih detail tentang event yang Anda inginkan..." 
+                      required aria-required="true" rows="5"></textarea>
           </div>
           
           <button type="submit" class="submit-btn">Kirim Pesan</button>
@@ -932,14 +1119,22 @@
       </div>
     </div>
   </section>
-
   <section class="map-section">
     <div class="map-container">
       <div class="map-heading">
         <h2>Lokasi <span>Kami</span></h2>
       </div>
       
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.65294833397!2d106.68941599123124!3d-6.229386704984693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1646212402601!5m2!1sid!2sid" class="map-frame" allowfullscreen="" loading="lazy"></iframe>
+      <div class="map-responsive">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253840.65294833397!2d106.68941599123124!3d-6.229386704984693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1646212402601!5m2!1sid!2sid" 
+          class="map-frame" 
+          allowfullscreen="" 
+          loading="lazy"
+          title="Lokasi Kantor Festivly"
+          aria-label="Google Maps menunjukkan lokasi kantor Festivly di Jakarta">
+        </iframe>
+      </div>
     </div>
   </section>
 
@@ -949,54 +1144,52 @@
         <h2>Pertanyaan <span>Umum</span></h2>
         <p>Berikut adalah beberapa pertanyaan yang sering ditanyakan oleh klien kami</p>
       </div>
-      
-      <div class="accordion">
-        <div class="accordion-item">
-          <div class="accordion-header">
+        <div class="accordion" role="tablist">        <div class="accordion-item">
+          <div class="accordion-header" id="accordion-header-1" role="tab" aria-controls="accordion-panel-1">
             <div class="accordion-title">Apa saja layanan yang ditawarkan oleh Festivly?</div>
-            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
           </div>
-          <div class="accordion-content">
+          <div class="accordion-content" id="accordion-panel-1" role="tabpanel" aria-labelledby="accordion-header-1">
             <p>Festivly menawarkan berbagai layanan event organizer seperti pernikahan, ulang tahun, acara korporasi, konser musik, seminar dan workshop, serta festival dan karnaval. Kami menyediakan layanan lengkap mulai dari perencanaan konsep, pencarian venue, dekorasi, katering, dokumentasi, hingga manajemen acara pada hari H.</p>
           </div>
         </div>
         
         <div class="accordion-item">
-          <div class="accordion-header">
+          <div class="accordion-header" id="accordion-header-2" role="tab" aria-controls="accordion-panel-2">
             <div class="accordion-title">Berapa biaya untuk menggunakan jasa Festivly?</div>
-            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
           </div>
-          <div class="accordion-content">
+          <div class="accordion-content" id="accordion-panel-2" role="tabpanel" aria-labelledby="accordion-header-2">
             <p>Biaya untuk menggunakan jasa Festivly bervariasi tergantung pada jenis acara, skala, dan kebutuhan spesifik Anda. Kami menawarkan berbagai paket dengan harga yang kompetitif dan fleksibel sesuai dengan budget yang Anda miliki. Hubungi kami untuk konsultasi gratis dan penawaran harga yang disesuaikan dengan kebutuhan Anda.</p>
           </div>
         </div>
         
         <div class="accordion-item">
-          <div class="accordion-header">
+          <div class="accordion-header" id="accordion-header-3" role="tab" aria-controls="accordion-panel-3">
             <div class="accordion-title">Berapa jauh sebelumnya saya harus memesan jasa Festivly?</div>
-            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
           </div>
-          <div class="accordion-content">
+          <div class="accordion-content" id="accordion-panel-3" role="tabpanel" aria-labelledby="accordion-header-3">
             <p>Untuk mendapatkan hasil terbaik, kami menyarankan agar Anda memesan jasa Festivly minimal 3-6 bulan sebelum tanggal acara, terutama untuk acara besar seperti pernikahan atau konferensi. Namun, kami juga dapat menangani permintaan dengan tenggat waktu yang lebih singkat tergantung pada ketersediaan dan kompleksitas acara.</p>
           </div>
         </div>
         
         <div class="accordion-item">
-          <div class="accordion-header">
+          <div class="accordion-header" id="accordion-header-4" role="tab" aria-controls="accordion-panel-4">
             <div class="accordion-title">Apakah Festivly melayani acara di luar Jakarta?</div>
-            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
           </div>
-          <div class="accordion-content">
+          <div class="accordion-content" id="accordion-panel-4" role="tabpanel" aria-labelledby="accordion-header-4">
             <p>Ya, Festivly melayani acara di Jakarta dan sekitarnya, serta kota-kota besar lainnya di Indonesia seperti Bandung, Surabaya, Bali, dll. Untuk acara di luar Jakarta, mungkin akan ada biaya tambahan untuk akomodasi dan transportasi tim kami.</p>
           </div>
         </div>
         
         <div class="accordion-item">
-          <div class="accordion-header">
+          <div class="accordion-header" id="accordion-header-5" role="tab" aria-controls="accordion-panel-5">
             <div class="accordion-title">Bagaimana cara memesan jasa Festivly?</div>
-            <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+            <div class="accordion-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
           </div>
-          <div class="accordion-content">
+          <div class="accordion-content" id="accordion-panel-5" role="tabpanel" aria-labelledby="accordion-header-5">
             <p>Cara termudah untuk memesan jasa Festivly adalah dengan mengisi formulir kontak di halaman ini atau menghubungi kami melalui telepon atau email. Setelah itu, kami akan menghubungi Anda untuk konsultasi awal dan membahas kebutuhan acara Anda secara lebih detail.</p>
           </div>
         </div>
@@ -1086,13 +1279,16 @@
       </div>
     </div>
   </footer>
-
   <script>
     // Accordion Functionality
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     
     accordionHeaders.forEach(header => {
-      header.addEventListener('click', function() {
+      // Add tabindex to make accordion headers keyboard accessible
+      header.setAttribute('tabindex', '0');
+      
+      // Handle both click and keyboard enter/space
+      const handleActivation = function() {
         const accordionItem = this.parentElement;
         const accordionContent = this.nextElementSibling;
         const accordionIcon = this.querySelector('.accordion-icon');
@@ -1101,10 +1297,22 @@
         accordionContent.classList.toggle('active');
         accordionIcon.classList.toggle('active');
         
+        // Toggle ARIA attributes for accessibility
+        const expanded = accordionContent.classList.contains('active');
+        this.setAttribute('aria-expanded', expanded);
+        accordionContent.setAttribute('aria-hidden', !expanded);
+        
         // Close other accordion items
         document.querySelectorAll('.accordion-content').forEach(content => {
           if (content !== accordionContent) {
             content.classList.remove('active');
+            content.setAttribute('aria-hidden', 'true');
+          }
+        });
+        
+        document.querySelectorAll('.accordion-header').forEach(accHeader => {
+          if (accHeader !== this) {
+            accHeader.setAttribute('aria-expanded', 'false');
           }
         });
         
@@ -1113,7 +1321,22 @@
             icon.classList.remove('active');
           }
         });
+      };
+      
+      header.addEventListener('click', handleActivation);
+      
+      // Add keyboard support
+      header.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleActivation.call(this);
+        }
       });
+      
+      // Set initial ARIA attributes
+      header.setAttribute('aria-expanded', 'false');
+      const content = header.nextElementSibling;
+      content.setAttribute('aria-hidden', 'true');
     });
     
     // Contact Form Submission

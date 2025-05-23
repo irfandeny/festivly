@@ -2,9 +2,12 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Temukan beragam event dan acara spesial dari Festivly yang akan memeriahkan hari-hari Anda. Mulai dari pernikahan, festival, hingga seminar.">
+  <meta name="keywords" content="acara festivly, event organizer, jadwal acara, festival, pernikahan, seminar, konser">
+  <meta name="theme-color" content="#0e0020">
   <title>Events - Festivly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <style>
     * {
@@ -16,8 +19,9 @@
       background-color: #0e0020;
       color: #fff;
       scroll-behavior: smooth;
-    }
-    header {
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
+    }    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -41,12 +45,24 @@
     .logo img:hover {
       transform: scale(1.05);
     }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
     nav a {
       color: #bb4040;
       margin: 0 15px;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s ease;
+      padding: 8px 0;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     nav a:hover {
       color: #ff00cc;
@@ -657,8 +673,29 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(255, 0, 140, 0.4);
     }
+      /* Responsive styles */
+    @media (max-width: 1200px) {
+      .events-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+      
+      .event-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .featured-desc {
+        max-width: 90%;
+      }
+      
+      .testimonials-row {
+        gap: 20px;
+      }
+      
+      .testimonial-card {
+        min-width: 220px;
+      }
+    }
     
-    /* Responsive styles */
     @media (max-width: 992px) {
       .featured-grid {
         grid-template-columns: 1fr;
@@ -666,6 +703,27 @@
       
       .featured-card:first-child {
         grid-column: span 1;
+      }
+      
+      .event-hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .filter-options {
+        gap: 5px;
+      }
+      
+      .filter-option {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .event-cta-content h2 {
+        font-size: 2.2rem;
+      }
+      
+      .footer-column {
+        flex: 0 0 calc(50% - 30px);
       }
     }
     
@@ -696,6 +754,8 @@
       
       .events-grid {
         grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
       }
       
       .filter-container {
@@ -712,11 +772,32 @@
       .filter-dropdown select {
         width: 100%;
       }
+      
+      .featured-card {
+        height: 350px;
+      }
+      
+      .featured-card:first-child {
+        height: 400px;
+      }
+      
+      .testimonial-card {
+        max-width: 100%;
+      }
+      
+      .pagination-btn {
+        width: 36px;
+        height: 36px;
+      }
     }
     
     @media (max-width: 576px) {
       .event-hero h1 {
         font-size: 2rem;
+      }
+      
+      .event-hero p {
+        font-size: 1rem;
       }
       
       .search-form {
@@ -729,11 +810,32 @@
         margin-bottom: 10px;
         border-radius: 25px;
         background: rgba(255, 255, 255, 0.1);
+        padding: 12px 20px;
       }
       
       .search-btn {
         width: 100%;
-        padding: 15px;
+        padding: 12px;
+        border-radius: 25px;
+      }
+      
+      .filter-label {
+        display: block;
+        margin-bottom: 8px;
+      }
+      
+      .filter-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      
+      .filter-option {
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.85rem;
       }
       
       .featured-title {
@@ -742,6 +844,104 @@
       
       .featured-desc {
         max-width: 100%;
+        font-size: 0.9rem;
+      }
+      
+      .event-title {
+        font-size: 1.2rem;
+      }
+      
+      .pagination {
+        gap: 5px;
+      }
+      
+      .pagination-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
+      
+      .events-heading h2,
+      .featured-heading h2,
+      .testimonials-heading h2 {
+        font-size: 2rem;
+      }
+      
+      .event-cta-content h2 {
+        font-size: 1.8rem;
+      }
+      
+      .event-cta-content p {
+        font-size: 1rem;
+      }
+      
+      .footer-column {
+        flex: 0 0 100%;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .footer-bottom-links {
+        justify-content: center;
+        margin-top: 10px;
+        gap: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        padding: 15px 10px;
+      }
+      
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+      
+      .event-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .filter-options {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .filter-option {
+        padding: 8px 10px;
+      }
+      
+      .featured-overlay {
+        padding: 20px;
+      }
+      
+      .featured-info {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .event-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-form input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      
+      .newsletter-form button {
+        border-radius: 4px;
+        width: 100%;
+        padding: 10px;
       }
     }
     
